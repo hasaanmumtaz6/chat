@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { ReactNode } from "react";
 interface layoutProps {
   children: ReactNode;
-  PageName: String;
+  PageName: string;
 }
 
 const Layout = ({ children, PageName }: layoutProps) => {
