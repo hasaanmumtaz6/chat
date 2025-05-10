@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from './components/Layout'
+import ContactResponse from './components/ContactResponse'
 
 const Home = () => {
   return (
-    <Layout title='Home'>
-      <p>Chat Room</p>
+    <Layout PageName='Home'>
+      <ContactResponse />
     </Layout>
   )
 }

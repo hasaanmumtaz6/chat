@@ -2,14 +2,14 @@ import Head from "next/head";
 import React, { ReactNode } from "react";
 interface layoutProps {
   children: ReactNode;
-  title: string;
+  PageName: String;
 }
 
-const Layout = ({ children, title }: layoutProps) => {
+const Layout = ({ children, PageName }: layoutProps) => {
   return (
     <main className="layout-container">
       <Head>
-        <title>{title} - Chat Room</title>
+        <title>{PageName} - Chat Room</title>
       </Head>
       <div className="children-container">{children}</div>
     </main>
