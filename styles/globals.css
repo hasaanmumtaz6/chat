@@ -25,3 +25,9 @@ html,
 body {
   @apply w-full h-full bg-[var(--color-main)] text-[var(--color-ciandark)];
 }
+
+/* layout-container */
+.layout-container {
+  @apply w-full h-screen flex flex-col items-center justify-center;
+}
+/* layout-container */
