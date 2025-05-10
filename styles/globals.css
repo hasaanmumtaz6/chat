@@ -28,6 +28,9 @@ body {
 
 /* layout-container */
 .layout-container {
-  @apply w-full h-screen flex flex-col items-center justify-center;
+  @apply w-full h-screen;
+}
+.children-container {
+  @apply w-full h-full flex flex-col items-center justify-center;
 }
 /* layout-container */
