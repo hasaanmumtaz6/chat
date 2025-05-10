@@ -35,13 +35,12 @@ body {
 }
 /* layout-container */
 
-
 /* Message-response */
 .Message-response-box {
   @apply w-full h-full rounded-md overflow-hidden flex items-start;
 }
 .response-opener-list-box {
-  @apply w-[25%] border-r-[0.125rem] border-[var(--color-bordergray)] h-full flex flex-col overflow-scroll overflow-x-hidden;
+  @apply w-[25%] border-r-[0.125rem] border-[var(--color-bordergray)] h-full flex flex-col overflow-scroll overflow-x-hidden bg-[url("/images/bg.png")] object-cover bg-no-repeat;
 }
 .response-opener-list-box::-webkit-scrollbar {
   @apply w-0;
@@ -76,8 +75,8 @@ body {
 .no-client-selected svg {
   @apply text-[4rem];
 }
-.no-client-selected p{
-  @apply font-bold text-[1.25rem]
+.no-client-selected p {
+  @apply font-bold text-[1.25rem];
 }
 .message-item {
   @apply bg-white text-[var(--color-ciandark)] w-[20rem] rounded-sm px-[1rem] py-[0.5rem] flex  gap-[0.5rem];
