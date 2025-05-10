@@ -23,7 +23,7 @@
 }
 html,
 body {
-  @apply w-full h-full bg-[var(--color-main)] text-[var(--color-ciandark)];
+  @apply w-full h-full bg-[var(--color-main)] select-none text-[var(--color-ciandark)];
 }
 
 /* layout-container */
