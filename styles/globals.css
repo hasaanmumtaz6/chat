@@ -37,9 +37,6 @@ body {
 
 
 /* Message-response */
-.Message-response-container {
-  @apply w-full h-full overflow-hidden flex flex-col gap-[0.5rem];
-}
 .Message-response-box {
   @apply w-full h-full rounded-md overflow-hidden flex items-start;
 }

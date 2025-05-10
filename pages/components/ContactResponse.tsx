@@ -58,69 +58,67 @@ const ContactResponse = () => {
   };
 
   return (
-    <div className="Message-response-container">
-      <div className="Message-response-box">
-        <div className="response-opener-list-box">
-          {Array.from(
-            new Map(responser.map((msg) => [msg.clientId, msg])).values()
-          ).map((client, index) => (
-            <div
-              key={index}
-              className={`reponser-profile ${
-                selectedClientId === client.clientId ? "active" : ""
-              }`}
-              onClick={() => handleClientClick(client.clientId)}
-            >
-              <picture>
-                <Image
-                  src={client.clientAvatar}
-                  width={40}
-                  height={40}
-                  alt="user-profile"
-                  className="reponser-profile-pic"
-                />
-              </picture>
-              <span className="responser-profiler-detail">
-                <span>
-                  <h2>{client.name}</h2>
-                  <time>{formatTo12HourTime(client.date)}</time>
-                </span>
-                <p>{client.message.slice(0, 30)}...</p>
+    <div className="Message-response-box">
+      <div className="response-opener-list-box">
+        {Array.from(
+          new Map(responser.map((msg) => [msg.clientId, msg])).values()
+        ).map((client, index) => (
+          <div
+            key={index}
+            className={`reponser-profile ${
+              selectedClientId === client.clientId ? "active" : ""
+            }`}
+            onClick={() => handleClientClick(client.clientId)}
+          >
+            <picture>
+              <Image
+                src={client.clientAvatar}
+                width={40}
+                height={40}
+                alt="user-profile"
+                className="reponser-profile-pic"
+              />
+            </picture>
+            <span className="responser-profiler-detail">
+              <span>
+                <h2>{client.name}</h2>
+                <time>{formatTo12HourTime(client.date)}</time>
               </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="response-messages-writer">
-          {selectedClientId ? (
-            <div className="client-chat-box">
-              {clientMessages.map((msg, i) => (
-                <div key={i} className="message-item">
-                  <picture>
-                    <Image
-                      src={msg.clientAvatar}
-                      width={40}
-                      height={40}
-                      alt="avatar-responser"
-                    />
-                  </picture>
-
-                  <div className="message-box">
-                    <text>
-                      <p>{msg.message}</p>
-                    </text>
-                    <time>{formatTo12HourTime(msg.date)}</time>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <span className="no-client-selected">
-              <PiMailboxBold />
-              <p>Select a client to view messages.</p>
+              <p>{client.message.slice(0, 30)}...</p>
             </span>
-          )}
-        </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="response-messages-writer">
+        {selectedClientId ? (
+          <div className="client-chat-box">
+            {clientMessages.map((msg, i) => (
+              <div key={i} className="message-item">
+                <picture>
+                  <Image
+                    src={msg.clientAvatar}
+                    width={40}
+                    height={40}
+                    alt="avatar-responser"
+                  />
+                </picture>
+
+                <div className="message-box">
+                  <text>
+                    <p>{msg.message}</p>
+                  </text>
+                  <time>{formatTo12HourTime(msg.date)}</time>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <span className="no-client-selected">
+            <PiMailboxBold />
+            <p>Select a client to view messages.</p>
+          </span>
+        )}
       </div>
     </div>
   );
