@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 const ContactSchema = new Schema({
   name: { type: String, required: true },
