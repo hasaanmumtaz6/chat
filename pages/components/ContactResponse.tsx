@@ -139,6 +139,25 @@ const ContactResponse = () => {
       <div className="response-messages-writer">
         {selectedClientId ? (
           <div className="client-chat-box">
+            <div className="chatheader">
+              <div className="user-profile-chat-header">
+                <picture>
+                  <Image
+                    src={clientAvatar}
+                    alt={`${clientId}-${clientName}_${clientId}`}
+                    height={40}
+                    width={40}
+                  />
+                </picture>
+                <span>
+                  <h2 className="chater-name-responser">{clientName}</h2>
+                  <p className="status-line">typing...</p>
+                </span>
+              </div>
+              <div className="icons-forchats">
+                
+              </div>
+            </div>
             <div className="reponser-chat-box">
               {clientMessages.map((msg, i) => (
                 <div key={i} className="message-item">

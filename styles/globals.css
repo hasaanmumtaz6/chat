@@ -66,8 +66,8 @@ body {
 .client-chat-box {
   @apply p-[1rem] text-white flex flex-col gap-[1rem] relative h-full;
 }
-.reponser-chat-box{
-  @apply h-[93%] overflow-scroll overflow-x-hidden w-full gap-[1rem] flex flex-col;
+.reponser-chat-box {
+  @apply h-[79%] overflow-scroll overflow-x-hidden w-full gap-[1rem] flex flex-col;
 }
 .reponser-chat-box::-webkit-scrollbar {
   @apply w-0;
@@ -108,4 +108,84 @@ body {
 .Messageform-writemessage button {
   @apply bg-green-600 px-[0.75rem] py-[0.5rem] flex items-center justify-center w-[5%] text-[white] font-bold text-[1rem] rounded-[0.25rem];
 }
+.chatheader {
+  @apply bg-white text-[var(--color-ciandark)] flex items-center gap-[0.5rem] rounded-[0.25rem] px-[1rem] py-[0.5rem];
+}
+.chatheader div {
+  @apply flex items-start gap-[0.5rem];
+}
+.chatheader div span {
+  @apply flex flex-col gap-[0.125rem];
+}
+.chatheader picture {
+  @apply w-[3rem] h-[3rem] flex items-end border border-[var(--color-bordergray)] rounded-full overflow-hidden;
+}
+.chatheader picture img {
+  @apply w-full h-full;
+}
+.chater-name-responser {
+  @apply text-[0.75rem] font-medium;
+}
+.status-line {
+  @apply text-[0.625rem] text-green-400;
+}
 /* Message-response */
+
+/* loader */
+.loader {
+  @apply w-[3rem] h-[3rem] border-[3px] border-dotted border-[var(--color-ciandark)] rounded-full inline-block relative box-border;
+  border-style: solid solid dotted dotted;
+  animation: rotation 2s linear infinite;
+}
+.loader::after {
+  @apply box-border absolute left-0 right-0 top-0 bottom-0 m-auto border-[3px] border-dotted border-[var(--color-purple)] w-[1.5rem] h-[1.5rem] rounded-full;
+  content: "";
+  border-style: solid solid dotted;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* loader */
+
+/* Sign-in form */
+.Sign-In-page-container {
+  @apply bg-[var(--color-main)] w-full h-screen flex flex-col items-center justify-center select-none gap-[1rem];
+}
+.Sign-In-page-box {
+  @apply bg-[url("/images/bgsignback.png")] w-full h-screen flex flex-col items-center justify-center select-none gap-[1rem];
+}
+.sign-in-form {
+  @apply flex items-center gap-[0.5rem] flex-col rounded-sm;
+}
+.sign-form {
+  @apply border-[1px] border-[var(--color-main)] flex flex-col gap-[1rem] items-center justify-center p-[2rem] rounded-md;
+  background: #e9e9e97c 40%;
+  backdrop-filter: saturate(100%) blur(30px);
+}
+.sign-in-form label {
+  @apply flex items-center gap-[0.125rem] justify-center border-[1px] border-[var(--color-ciandark)] px-[0.5rem] py-[0.25rem] text-[0.875rem] text-[var(--color-ciandark)] rounded-[0.25rem];
+}
+.sign-in-form input {
+  @apply outline-none px-[0.5rem] py-[0.25rem] bg-transparent placeholder:text-[0.75rem] placeholder:text-[var(--color-ciandark)];
+}
+.sign-in-btn {
+  @apply bg-[var(--color-blue)] text-[var(--color-white)] w-fit px-[1rem] py-[0.5rem] font-bold uppercase text-[0.725rem] rounded-sm mt-[0.5rem];
+}
+/* Sign-in form */
