@@ -141,6 +141,7 @@ const ContactResponse = () => {
 
   return (
     <div className="Message-response-box">
+      {error && <p className="fixed right-[1rem] top-[1rem]">{error}</p>}
       <div className="response-opener-list-box">
         {Array.from(
           new Map(responser.map((msg) => [msg.clientId, msg])).values()
