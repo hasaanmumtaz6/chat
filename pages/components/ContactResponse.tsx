@@ -62,9 +62,6 @@ const ContactResponse = () => {
       if (response.status === 200) {
         setFormStatus("Contact submitted successfully!");
         setStatusType("success");
-        setClientName("");
-        setClientEmail("");
-        setClientId("");
         setMessageToClient("");
       } else {
         throw new Error(`Unexpected response: ${response.statusText}`);
@@ -85,6 +82,7 @@ const ContactResponse = () => {
     setSelectedClientId(clientId);
     const clientMsgs = responser.filter((msg) => msg.clientId === clientId);
     setClientMessages(clientMsgs);
+    setMessageToClient("");
 
     if (clientMsgs.length > 0) {
       const { name, email, clientAvatar, clientId } = clientMsgs[0];
