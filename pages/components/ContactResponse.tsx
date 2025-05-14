@@ -4,6 +4,8 @@ import axios from "axios";
 import { PiMailboxBold } from "react-icons/pi";
 import { IoSend } from "react-icons/io5";
 import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import { BiLogOut } from "react-icons/bi";
 
 interface Responser {
   _id: string;
@@ -15,10 +17,11 @@ interface Responser {
   clientAvatar: string;
   date: string;
 }
+
 interface RegisterData {
   _id: string;
   name: string;
-  avatar: string[];
+  avatar: string;
   email: string;
   username: number;
 }
@@ -143,34 +146,63 @@ const ContactResponse = () => {
     <div className="Message-response-box">
       {error && <p className="fixed right-[1rem] top-[1rem]">{error}</p>}
       <div className="response-opener-list-box">
-        {Array.from(
-          new Map(responser.map((msg) => [msg.clientId, msg])).values()
-        ).map((client, index) => (
-          <div
-            key={index}
-            className={`reponser-profile ${
-              selectedClientId === client.clientId ? "active" : ""
-            }`}
-            onClick={() => handleClientClick(client.clientId)}
-          >
-            <picture>
-              <Image
-                src={client.clientAvatar}
-                width={40}
-                height={40}
-                alt="user-profile"
-                className="reponser-profile-pic"
-              />
-            </picture>
-            <span className="responser-profiler-detail">
-              <span>
-                <h2>{client.name}</h2>
-                <time>{formatTo12HourTime(client.date)}</time>
+        <div className="responser-profile-box">
+          {Array.from(
+            new Map(responser.map((msg) => [msg.clientId, msg])).values()
+          ).map((client, index) => (
+            <div
+              key={index}
+              className={`reponser-profile ${
+                selectedClientId === client.clientId ? "active" : ""
+              }`}
+              onClick={() => handleClientClick(client.clientId)}
+            >
+              <picture>
+                <Image
+                  src={client.clientAvatar}
+                  width={40}
+                  height={40}
+                  alt="user-profile"
+                  className="reponser-profile-pic"
+                />
+              </picture>
+              <span className="responser-profiler-detail">
+                <span>
+                  <h2>{client.name}</h2>
+                  <time>{formatTo12HourTime(client.date)}</time>
+                </span>
+                <p>{client.message.slice(0, 30)}...</p>
               </span>
-              <p>{client.message.slice(0, 30)}...</p>
-            </span>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="user-profileopner-box-major-profile">
+          {userData && (
+            <div className="major-profiler-box">
+              <span className="major-profiler">
+                <picture>
+                  <Image
+                    src={userData?.avatar}
+                    alt={`${userData?._id}-${userData?.name}-${userData?.username}`}
+                    width={40}
+                    height={40}
+                  />
+                </picture>
+
+                <span>
+                  <h2>{userData?.name}</h2>
+                  <h4>{userData?.username}</h4>
+                </span>
+              </span>
+              <span className="major-profiler-logout">
+                <button className="logout-btn" onClick={() => signOut()}>
+                  <BiLogOut />
+                </button>
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="response-messages-writer">
