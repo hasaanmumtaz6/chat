@@ -216,6 +216,6 @@ body {
   @apply outline-none px-[0.5rem] py-[0.25rem] bg-transparent placeholder:text-[0.75rem] placeholder:text-[var(--color-ciandark)];
 }
 .sign-in-btn {
-  @apply bg-[var(--color-blue)] text-[var(--color-white)] w-fit px-[1rem] py-[0.5rem] font-bold uppercase text-[0.725rem] rounded-sm mt-[0.5rem];
+  @apply bg-[var(--color-blue)] text-[var(--color-white)] w-fit px-[1rem] py-[0.5rem] font-bold uppercase text-[0.725rem] rounded-sm mt-[0.5rem] cursor-pointer;
 }
 /* Sign-in form */
